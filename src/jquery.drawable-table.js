@@ -39,10 +39,11 @@ THE SOFTWARE.
                     settings.draw($(this));
                 }
             };
-            $table.mousedown(start).mouseup(end).mouseleave(end);
-            $table.find("td").mouseover(draw).click(function(){
-                settings.draw($(this));
-            });
+            $table
+                    .on('mousedown', start)
+                    .on('mouseup mouseleave', end);
+            $table.find("td").mouseover(draw)
+                .on('click touchstart', function(){settings.draw($(this))});
         });
     };
 
