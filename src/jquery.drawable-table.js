@@ -59,8 +59,8 @@
         ontouchmove: function(event, draw, offset, xUnit, yUnit) {
             var $table = $(this);
             var touch = event.originalEvent.touches[0];
-            var x = Math.floor((touch.clientX - offset.left) / xUnit) + 1;
-            var y = Math.floor((touch.clientY - offset.top) / yUnit) + 1;
+            var x = Math.floor((touch.screenX - offset.left) / xUnit) + 1;
+            var y = Math.floor((touch.screenY - offset.top) / yUnit) + 1;
             var $td = $table.find("tr:nth-child(" + y + ")").find("td:nth-child(" + x + ")");
             draw($td);
             event.preventDefault();
